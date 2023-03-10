@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Rating from '../Rating/Rating'
+import { BrowserRouter, Link } from 'react-router-dom'
+
 
 const Wrapper = styled.div`
-  padding: 25px 100px 25px 0;
+  padding: 0 100px 25px 0;
   font-size: 28px;
 
   img {
@@ -12,6 +14,26 @@ const Wrapper = styled.div`
     border-radius: 100%;
     border: 1px solid rbga(0,0,0,0.1);
     margin-bottom: -8px;
+  }
+`
+const LinkWrapper = styled.div`
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  margin-top: 30px;
+
+  a {
+    color: #5A5A5A;
+    background: #D3D3D3;
+    border-radius: 4px;
+    padding: 10px 10px;
+    border: 1px solid #5A5A5A;
+    text-decoration: none;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+      border: 1px solid #D3D3D3;
+    }
   }
 `
 const TotalReviews = styled.div`
@@ -33,6 +55,11 @@ const Header = (props) => {
   const total = props.reviews.length
 
   return (
+    <>
+  
+    <LinkWrapper>
+      <Link to={`/`}>Return Home</Link>
+    </LinkWrapper>
     <Wrapper>
       <h1> <img src={image_url} alt={name}/> {name}</h1>
       <div>
@@ -41,6 +68,7 @@ const Header = (props) => {
         <TotalOutOf>{avg_score} out of 5 stars</TotalOutOf>
       </div>
     </Wrapper>
+    </>
   )
 }
 

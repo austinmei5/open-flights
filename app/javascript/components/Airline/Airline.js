@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   margin-right: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  font-family: Arial, Helvetica, sans-serif;
+
 `
 const Column = styled.div`
   background: #fff;

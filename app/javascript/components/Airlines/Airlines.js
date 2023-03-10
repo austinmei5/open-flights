@@ -8,17 +8,19 @@ const Home = styled.div`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
 `
-
 const Header = styled.div`
-  padding: 100px 100px 10px 100px;
+  padding: 40px 100px 50px 100px;
+  background: #800000;
+  color: #fff;
+  border-radius: 6px;
 
   h1 {
     font-size: 42px;
   }
 
 `
-
 const Subheader = styled.div`
   font-weight: 300;
   font-size: 26px;
@@ -29,7 +31,8 @@ const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   width: 100%;
-  padding: 20px;
+  margin-top: 20px;
+  
 `
   
 const Airlines = () => {
@@ -55,9 +58,7 @@ const Airlines = () => {
         <h1>OpenFlights</h1>
         <Subheader>Honest, unbiased airline reviews.</Subheader>
       </Header>
-      <Grid>
-        {grid}
-      </Grid>
+      <Grid>{grid}</Grid>
     </Home>
   )
 }
