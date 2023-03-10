@@ -5,6 +5,8 @@ import Header from './Header'
 import styled from 'styled-components'
 import ReviewForm from './ReviewForm'
 import Review from './Review'
+// import SuccessAlert from '../Alerts/Success'
+// import Alert from 'react-bootstrap/Alert';
 
 const Wrapper = styled.div`
   margin-left: auto;
@@ -89,7 +91,6 @@ const Airline = () => {
 
       const newAvgScore = AverageScoreCalculator(included)
       setAvgScore(newAvgScore)
-      
     })
     .catch(response => {})
   }
