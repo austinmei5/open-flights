@@ -9,7 +9,7 @@ airlines = Airline.create([
   },
   {
     name: "Southwest Airlines",
-    image_url: "https://open-flights.s3.amazonaws.com/Southwest-Airlines.png"
+    image_url: "https://companieslogo.com/img/orig/LUV-8f519f22.png?t=1660236829"
   },
   {
     name: "Delta Air Lines",

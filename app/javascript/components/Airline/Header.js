@@ -3,16 +3,14 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding: 50px 100px 50px 0;
+  font-size: 28px;
 
   img {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 100%;
     border: 1px solid rbga(0,0,0,0.1);
-  }
-
-  h1 {
-    font-size: 30px;
+    margin-bottom: -8px;
   }
 `
 const TotalReviews = styled.div`
@@ -31,11 +29,11 @@ const Header = (props) => {
 
   return (
     <Wrapper>
-      <h1> <img src={image_url} alt={name}/>{name}</h1>
+      <h1> <img src={image_url} alt={name}/> {name}</h1>
       <div>
         <TotalReviews>{total} User Reviews</TotalReviews>
         <div className="starRating"></div>
-        <div className="totalOutOf">{avg_score} out of 5</div>
+        <TotalOutOf>{avg_score} out of 5</TotalOutOf>
       </div>
     </Wrapper>
   )
