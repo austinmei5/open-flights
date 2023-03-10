@@ -1,11 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Rating from '../Rating/Rating'
 
 const Card = styled.div`
-  border: 1px solid #efefef;
+  border: 1px solid #e3e3e3;
   background: #fff;
   text-align: center;
+  border-radius: 6px;
 `
 const AirlineLogo = styled.div`
   width: 50px;
@@ -31,15 +33,13 @@ const LinkWrapper = styled.div`
   a {
     color: #fff;
     background: #000;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 10px 50px;
     border: 1px solid #000;
     width: 100%;
     text-decoration: none;
   }
 `
-
-
 const Airline = (props) => {
   return (
     <Card>
@@ -47,7 +47,7 @@ const Airline = (props) => {
         <img src={props.attributes.image_url} alt={props.attributes.name} />
       </AirlineLogo>
       <AirlineName>{props.attributes.name}</AirlineName>
-      <div className="airline-score">{props.attributes.avg_score}</div>
+      <Rating score={props.attributes.avg_score} />
       <LinkWrapper>
         <Link to={`/airlines/${props.attributes.slug}`}>View Airline</Link>
       </LinkWrapper>

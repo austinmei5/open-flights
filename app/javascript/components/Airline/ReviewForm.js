@@ -8,9 +8,10 @@ const RatingContainer = styled.div`
   text-align: center;
   border-radius: 4px;
   font-size: 18px;
-  padding: 40px 0 10px 0;
+  padding: 20px 0 10px 0;
   border: 1px solid #e6e6e6;
   background: #fff;
+  margin-top : -3px;
 `
 
 const RatingBox = styled.div`
@@ -19,6 +20,7 @@ const RatingBox = styled.div`
   justify-content: center;
   flex-direction: row-reverse;
   position: relative;
+  margin-top: 12px;
   
   input {
     display: none;
@@ -45,8 +47,74 @@ const RatingBox = styled.div`
   }
 `
 
-const RatingTitle = styled.div`
+const Field = styled.div`
+  border-radius: 4px;  
+  
+  input {
+    min-height: 30px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    padding: 12px;
+    width: 96%;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
+  textarea {
+    min-height: 80px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    padding: 12px;
+    width: 96%;
+    resize: none;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+`
+const Wrapper = styled.div`
+  background: #fff;
+  padding: 20px;
+  background: #800000;
+  padding-top: 100px;
+  
+  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: hidden;
+`
+const SubmitButton = styled.button`
+  color: #fff;
+  background: #333;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  border: 1px solid #000;
+  width: 100%;
+  margin-top: 20px;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+    border: 1px solid #fff;
+  }
+
+`
+const Headline = styled.div`
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: -18px;
+`
+
+const RatingTitle = styled.div`
+  font-size: 20px;
+  font-weight: bold;
 `
 
 const ReviewForm = (props) => {
@@ -58,28 +126,29 @@ const ReviewForm = (props) => {
   ))
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <form onSubmit={props.handleSubmit}>
-        <div>Have an experience with {props.attributes.name}? Share your review!</div>
-        <div className="field">
+        <Headline>Have an experience with {props.attributes.name}? Share your review!</Headline>
+        <Field>
           <input type="text" name="title" placeholder="Review Title" onChange={props.handleChange} value={props.review.title||''}/>
-        </div>
-        <div className="field">
-          <input type="text" name="description" placeholder="Review Description" onChange={props.handleChange} value={props.review.description||''}/>
-        </div>
-        <div className="field">
+        </Field>
+        <Field>
+          <textarea name="description" placeholder="Review Description" 
+          onChange={props.handleChange} value={props.review.description||''} />
+        </Field>
+        <Field>
           <RatingContainer>
-            <div className="rating-title-text">Rate This Airline</div>
+            <RatingTitle>Rate This Airline</RatingTitle>
             <RatingBox>
               {ratingOptions}
             </RatingBox>
           </RatingContainer>
-        </div>
+        </Field>
 
-        <button type="submit">Submit Your Review</button>
+        <SubmitButton type="submit">Submit Your Review</SubmitButton>
       </form>
 
-    </div>
+    </Wrapper>
   )
 }
 
