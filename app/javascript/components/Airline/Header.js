@@ -6,7 +6,7 @@ import { BrowserRouter, Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
   padding: 0 100px 25px 0;
-  font-size: 28px;
+  font-size: 24px;
 
   img {
     height: 60px;
@@ -19,20 +19,20 @@ const Wrapper = styled.div`
 const LinkWrapper = styled.div`
   cursor: pointer;
   transition: ease-in-out 0.1s;
-  margin-top: 30px;
+  margin: 30px 0 20px 0;
 
   a {
-    color: #5A5A5A;
-    background: #D3D3D3;
+    color: #000;
+    background: #ebebeb;
     border-radius: 4px;
     padding: 10px 10px;
-    border: 1px solid #5A5A5A;
+    border: 1px solid #ebebeb;
     text-decoration: none;
 
     &:hover {
-      background: #fff;
+      background: #d6d6d6;
       color: #000;
-      border: 1px solid #D3D3D3;
+      border: 1px solid #d6d6d6;
     }
   }
 `
