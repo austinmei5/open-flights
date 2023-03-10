@@ -28,7 +28,7 @@ const Airlines = () => {
         <div className="subheader">Honest, unbiased airline reviews.</div>
       </div>
       <div className="grid">
-        <ul>{list}</ul>
+        {grid}
       </div>
     </div>
   )
