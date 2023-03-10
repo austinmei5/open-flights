@@ -64,7 +64,8 @@ const Airline = () => {
 
     axios.post('/api/v1/reviews', {review, airline_id})
     .then(response => {
-      const included = [...airline.included, response.data]
+      const included = [...airline.included, response.data.data]
+      // console.log(included)
       setAirline({...airline, included})
       setReview({title: '', description: '', score: 0})
     })
@@ -81,6 +82,7 @@ const Airline = () => {
 
   if (loaded && airline.included) {
     reviews = airline.included.map( (item, index) => {
+      // console.log('mapping', item)
       return (
         <Review
           key={index}
