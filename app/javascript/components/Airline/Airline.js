@@ -31,6 +31,7 @@ const Airline = () => {
   const [airline, setAirline] = useState({})
   const [review, setReview] = useState({})
   const [loaded, setLoaded] = useState(false)
+  const [avgScore, setAvgScore] = useState(0)
 
   const { slug } = useParams()
 
@@ -65,9 +66,14 @@ const Airline = () => {
     axios.post('/api/v1/reviews', {review, airline_id})
     .then(response => {
       const included = [...airline.included, response.data.data]
-      // console.log(included)
+      console.log(included)
       setAirline({...airline, included})
       setReview({title: '', description: '', score: 0})
+
+      const sumScores = included.map(item => item.attributes.score).reduce((prev, next) => prev + next);
+      const numScores = included.length
+      setAvgScore(Math.round(sumScores/numScores * 100)/100)
+      
     })
     .catch(response => {})
   }
@@ -101,6 +107,7 @@ const Airline = () => {
           <Main>
               <Header 
                 attributes={airline.data.attributes}
+                score={avgScore}
                 reviews={airline.included}
               />
             {reviews}
