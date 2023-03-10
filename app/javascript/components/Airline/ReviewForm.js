@@ -11,6 +11,7 @@ const RatingContainer = styled.div`
   padding: 20px 0 10px 0;
   border: 1px solid #e6e6e6;
   background: #fff;
+  margin-top : -3px;
 `
 
 const RatingBox = styled.div`
@@ -47,19 +48,29 @@ const RatingBox = styled.div`
 `
 
 const Field = styled.div`
-  border-radius: 4px;
-  margin: 0 0 12px 0;
-  border: 1px solid #e6e6e6;
-  padding: 12px;
-  width: 96%;
-  border-radius: 4px;
-
+  border-radius: 4px;  
+  
   input {
     min-height: 30px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    padding: 12px;
+    width: 96%;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   textarea {
     min-height: 80px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    padding: 12px;
+    width: 96%;
+    resize: none;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 `
 const Wrapper = styled.div`
@@ -123,9 +134,7 @@ const ReviewForm = (props) => {
         </Field>
         <Field>
           <textarea name="description" placeholder="Review Description" 
-          onChange={props.handleChange}>
-            {props.review.description||''}
-          </textarea>
+          onChange={props.handleChange} value={props.review.description||''} />
         </Field>
         <Field>
           <RatingContainer>
