@@ -48,7 +48,7 @@ const Airline = () => {
   const handleChange = (event) => {
     event.preventDefault()
 
-    setReview(Object.assign(...review, {[event.target.name]: event.target.value}))
+    setReview(Object.assign({...review, [event.target.name]: event.target.value}))
 
     // console.log('review:', review)
   }
@@ -70,6 +70,11 @@ const Airline = () => {
     .catch(response => {})
   }
 
+  const setRating = (score, event) => {
+    event.preventDefault()
+
+    setReview({...review, score})
+  }
 
   return (
   <Wrapper>
@@ -89,6 +94,7 @@ const Airline = () => {
           <ReviewForm 
             handleChange={handleChange}
             handleSubmit={handleSubmit}
+            setRating={setRating}
             attributes={airline.data.attributes}
             review={review}
           />
