@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Gray from './Stars/Gray'
 import Hover from './Stars/Hover'
-import Select from './Stars/Selected'
+import Selected from './Stars/Selected'
 
 const RatingContainer = styled.div`
   text-align: center;
@@ -21,19 +21,27 @@ const RatingBox = styled.div`
   position: relative;
   
   input {
-    diplay: none;
+    display: none;
   }
 
   label {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background-image: url("data:image/svg+xml;,${Gray}");
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Gray}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
   }
 
   input:checked ~ label,
   input:checked ~ label ~ label {
-    background-image: url("data:image/svg+xml;,${Selected}");
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Selected}");
+  }
+
+  input:not(:checked) ~ label:hover,
+  input:not(:checked) ~ label:hover ~ label {
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Hover}");
   }
 `
 
@@ -62,9 +70,9 @@ const ReviewForm = (props) => {
         <div className="field">
           <RatingContainer>
             <div className="rating-title-text">Rate This Airline</div>
-            <div className="rating-box">
+            <RatingBox>
               {ratingOptions}
-            </div>
+            </RatingBox>
           </RatingContainer>
         </div>
 
